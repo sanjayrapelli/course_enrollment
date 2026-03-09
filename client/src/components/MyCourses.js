@@ -14,6 +14,7 @@ import {
 import axios from 'axios';
 import { useAuth } from '../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import BASE_URL from '../config';
 
 const MyCourses = () => {
   const [courses, setCourses] = useState([]);
@@ -54,14 +55,14 @@ const MyCourses = () => {
       let response;
       if (user.role === 'instructor') {
         response = await axios.get(
-          `https://course-enrollment-qs1d.onrender.com/api/courses/instructor/${user._id}`,
+          `${BASE_URL}/api/courses/instructor/${user._id}`,
           config
         );
         setCourses(Array.isArray(response.data) ? response.data : []);
         setEnrollments([]);
       } else {
         response = await axios.get(
-          'https://course-enrollment-qs1d.onrender.com/api/enrollments/my-enrollments',
+          `${BASE_URL}/api/enrollments/my-enrollments`,
           config
         );
 
@@ -111,7 +112,7 @@ const MyCourses = () => {
       if (!course || !course.enrollmentId) throw new Error('Enrollment information not found');
 
       await axios.delete(
-        `https://course-enrollment-qs1d.onrender.com/api/enrollments/${course.enrollmentId}`,
+        `${BASE_URL}/api/enrollments/${course.enrollmentId}`,
         config
       );
 
@@ -147,7 +148,7 @@ const MyCourses = () => {
       };
 
       await axios.delete(
-        `https://course-enrollment-qs1d.onrender.com/api/courses/${courseId}`,
+        `${BASE_URL}/api/courses/${courseId}`,
         config
       );
 

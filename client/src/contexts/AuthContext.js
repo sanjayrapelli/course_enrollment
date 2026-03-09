@@ -13,6 +13,9 @@ export const useAuth = () => {
   return context;
 };
 
+import BASE_URL from '../config';
+
+
 // AuthProvider component
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -27,7 +30,7 @@ export const AuthProvider = ({ children }) => {
         try {
           axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
           // const response = await axios.get('http://localhost:5002/api/auth/verify');
-          const response = await axios.get('https://course-enrollment-qs1d.onrender.com/api/auth/verify');
+          const response = await axios.get(`${BASE_URL}/api/auth/verify`);
 
           setUser(response.data.user);
         } catch (error) {
@@ -48,7 +51,7 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     try {
       // const response = await axios.post('http://localhost:5002/api/auth/login', {
-      const response = await axios.post('https://course-enrollment-qs1d.onrender.com/api/auth/login', {
+      const response = await axios.post(`${BASE_URL}/api/auth/login`, {
         email,
         password,
       });
@@ -78,7 +81,7 @@ export const AuthProvider = ({ children }) => {
   const register = async (name, email, password, role) => {
     try {
       // const response = await axios.post('http://localhost:5002/api/auth/register', {
-      const response = await axios.post('https://course-enrollment-qs1d.onrender.com/api/auth/register', {
+      const response = await axios.post(`${BASE_URL}/api/auth/register`, {
         name,
         email,
         password,

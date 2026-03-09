@@ -25,7 +25,7 @@ import WorkIcon from '@mui/icons-material/Work';
 import EditIcon from '@mui/icons-material/Edit';
 import SaveIcon from '@mui/icons-material/Save';
 
-const BASE_URL =  'https://course-enrollment-qs1d.onrender.com';
+import BASE_URL from '../config';
 
 const Profile = () => {
   const { user } = useAuth();
