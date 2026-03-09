@@ -37,20 +37,22 @@ A full-stack application to manage course enrollments with a React frontend and 
 
 ## 📁 Repository Structure
 
+```text
 /
 ├── client/                 # React frontend
 │   ├── src/
 │   ├── public/
 │   ├── package.json
 │   └── ...
-└── course\_enroll/          # Express backend
-├── models/
-├── routes/
-├── middleware/
-├── scripts/
-├── server.js
-├── package.json
-└── .env
+└── course_enroll/          # Express backend
+    ├── models/
+    ├── routes/
+    ├── middleware/
+    ├── scripts/
+    ├── server.js
+    ├── package.json
+    └── .env
+```
 
 ---
 
@@ -58,27 +60,30 @@ A full-stack application to manage course enrollments with a React frontend and 
 
 ### 1. Clone the Repository
 
-bash
+```bash
 git clone https://github.com/sanjayrapelli/course_enrollment.git
 cd course_enrollment
+```
 
 ### 2. Backend Setup (`course_enroll/`)
 
-bash
+```bash
 cd course_enroll
 npm install
 cp .env.example .env
 # Edit .env with your settings (e.g., MongoDB URI, JWT secret, PORT)
 npm start
+```
 
 
 ### 3. Frontend Setup (`client/`)
 
-bash
+```bash
 cd ../client
 npm install
 npm start
 # App will run on http://localhost:3000
+```
 
 
 ---
@@ -119,10 +124,11 @@ npm start
 
 Create and configure `.env` in the root of `course_enroll/`:
 
-env
+```env
 MONGO_URI=your_mongodb_connection_string
 JWT_SECRET=a_very_secure_secret
 PORT=5000
+```
 
 
 ---
